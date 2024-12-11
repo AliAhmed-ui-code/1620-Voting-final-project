@@ -30,9 +30,10 @@ def submit_logic(ID:str, radio_answer:int, clear_fields) -> None:
             writer.writerow([ID, candidate])
             messagebox.showinfo("Success", "Your vote has been submitted successfully!")
 
-        # Clear input fields using the provided callback
         clear_fields()
     except ValueError:
         messagebox.showerror("Invalid Input", "ID number must be an integer and only 8 characters long.")
+        clear_fields()
     except TypeError:
         messagebox.showerror("Invalid Input", "Must choose a candidate.")
+        clear_fields()
